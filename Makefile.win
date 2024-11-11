@@ -1,0 +1,31 @@
+# Project: Contain
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = test.o Contain.o
+LINKOBJ  = test.o Contain.o
+LIBS     = -static-libgcc
+INCS     = 
+CXXINCS  = 
+BIN      = Contain.exe
+CXXFLAGS = $(CXXINCS) -std=c++20
+CFLAGS   = $(INCS) -std=c++20
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+test.o: test.cpp
+	$(CPP) -c test.cpp -o test.o $(CXXFLAGS)
+
+Contain.o: Contain.cpp
+	$(CPP) -c Contain.cpp -o Contain.o $(CXXFLAGS)
